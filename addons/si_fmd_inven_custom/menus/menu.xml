@@ -1,0 +1,5 @@
+<!-- menus/menu.xml -->
+<odoo>
+    <menuitem id="menu_si_fmd_root" name="จัดการข้อมูล FMD" parent="stock.menu_stock_config_settings" sequence="10"/>
+    <menuitem id="menu_si_sag_type" name="ประเภทกระสอบ"  parent="menu_si_fmd_root" action="action_si_sag_type" sequence="0" />
+</odoo>

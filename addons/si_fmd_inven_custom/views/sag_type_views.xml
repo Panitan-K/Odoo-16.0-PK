@@ -1,0 +1,30 @@
+<!-- views/sag_type_views.xml -->
+<odoo>
+    <record id="view_is_sag_type_tree" model="ir.ui.view">
+        <field name="name">sag.type.tree</field>
+        <field name="model">si.sag.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="weight"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_is_sag_type_form" model="ir.ui.view">
+        <field name="name">sag.type.form</field>
+        <field name="model">si.sag.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="weight"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

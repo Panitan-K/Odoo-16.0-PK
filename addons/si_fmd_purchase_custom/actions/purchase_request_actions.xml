@@ -1,0 +1,11 @@
+<!-- actions/purchase_request_actions.xml -->
+<odoo>
+    <record id="action_si_purchase_request" model="ir.actions.act_window">
+        <field name="name">ใบขอซื้อ</field>
+        <field name="res_model">purchase.order</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_purchase_request_form"/>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+</odoo>
