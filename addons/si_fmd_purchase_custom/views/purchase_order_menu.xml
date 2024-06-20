@@ -2,21 +2,29 @@
 <odoo>
     <data>
 
-    <menuitem id="menu_si_fmpr_01_01" name="ใบขอซื้อ" parent="purchase.menu_procurement_management"
-              action="action_si_purchase_rm" sequence="10" />
+        <!-- Add new menu items -->
+        <menuitem id="menu_si_fmpr_01_01" name="ใบขอซื้อ"
+                  parent="purchase.menu_procurement_management"
+                  action="action_si_purchase_rm" sequence="10" />
 
-    <menuitem id="menu_si_purchase_rm" name="คำสั่งซื้อ RM" parent="purchase.menu_procurement_management"
-              action="action_si_purchase_rm" sequence="17" />
+        <menuitem id="menu_si_purchase_rm" name="คำสั่งซื้อ RM"
+                  parent="purchase.menu_procurement_management"
+                  action="action_si_purchase_rm" sequence="17" />
 
-    <!-- Hide the menu items -->
+        <!-- Hide existing menu items -->
+        <!-- Use the correct module and record ID format -->
         <record id="purchase.menu_purchase_rfq" model="ir.ui.menu">
             <field name="active">False</field>
         </record>
+
         <record id="purchase.menu_procurement_management_supplier_name" model="ir.ui.menu">
             <field name="active">False</field>
         </record>
-        <record id="purchase.menu_purchase_form_action" model="ir.ui.menu">
-            <field name="active">False</field>
+
+        <!-- Change the name of an existing menu item -->
+        <record id="purchase.menu_procurement_management" model="ir.ui.menu">
+            <field name="name">ซื้อ RM</field>
         </record>
+
     </data>
 </odoo>
