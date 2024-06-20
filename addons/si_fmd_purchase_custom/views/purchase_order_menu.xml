@@ -2,8 +2,7 @@
 <odoo>
     <data>
         <!-- Add new menu items -->
-       <menuitem id="menu_purchase_rfq" name="ซื้อ RM" parent="purchase.menu_procurement_management"
-                 action="action_si_purchase_request" sequence="9" />
+       
 
         <menuitem id="menu_si_fmpr_01_01" name="ใบขอซื้อ" parent="purchase.menu_procurement_management"
                   action="action_si_purchase_request" sequence="10" />
