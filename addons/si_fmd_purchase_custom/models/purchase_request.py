@@ -10,4 +10,3 @@ class PurchaseOrderLine(models.Model):
     item_description = fields.Char(string='คำอธิบายรายการที่ต้องการ')
     required_qly = fields.Integer(string='จำนวนที่ต้องการซื้อ')
     required_reason = fields.Text(string='สาเหตุที่ต้องการขอซื้อ')
-

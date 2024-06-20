@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from . import fmd_purchase,purchase_request
+from . import fmd_purchase
