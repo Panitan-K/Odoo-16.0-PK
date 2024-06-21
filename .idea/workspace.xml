@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="17064c9c-2026-4c49-8934-c62afe3064f6" name="Changes" comment="First Odoo 16 Push">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/actions/purchase_request_actions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/actions/purchase_request_actions.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/views/purchase_order_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/views/purchase_order_menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/views/purchase_request_views.xml" beforeDir="false" afterPath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/views/purchase_request_views.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,17 +49,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.main.executor": "Run",
-    "Python.odoo-bin.executor": "Run",
-    "Python.odoo16.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Test",
-    "last_opened_file_path": "C:/Users/ADMIN/Desktop/Outsource Odoo/pythonProject/odoo-bin",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.odoo-bin.executor&quot;: &quot;Run&quot;,
+    &quot;Python.odoo16.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Test&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ADMIN/Desktop/Outsource Odoo/pythonProject/odoo-bin&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="odoo16" type="PythonConfigurationType" factoryName="Python">
       <module name="pythonProject" />

@@ -14,7 +14,7 @@
         <!-- Hide existing menu items -->
         <!-- Use the correct module and record ID format -->
         <record id="purchase.menu_purchase_rfq" model="ir.ui.menu">
-            <field name="active">False</field>
+            <field name="active">True</field>
         </record>
 
         <record id="purchase.menu_procurement_management_supplier_name" model="ir.ui.menu">
