@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="17064c9c-2026-4c49-8934-c62afe3064f6" name="Changes" comment="First Odoo 16 Push">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/__manifest__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/actions/purchase_request_actions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/actions/purchase_request_actions.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/models/fmd_purchase.py" beforeDir="false" afterPath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/models/fmd_purchase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/models/purchase_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/models/purchase_request.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/views/purchase_order_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/views/purchase_order_menu.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/views/purchase_request_views.xml" beforeDir="false" afterPath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/views/purchase_request_views.xml" afterDir="false" />
     </list>
@@ -75,7 +79,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/odoo-bin" />
-      <option name="PARAMETERS" value="-c debian/odoo.conf" />
+      <option name="PARAMETERS" value="-c debian/odoo.conf -u odoo16T" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />

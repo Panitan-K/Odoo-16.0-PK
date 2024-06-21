@@ -25,6 +25,8 @@
     'data': [
         'views/purchase_order_rm_views.xml',
         'actions/purchase_order_rm_actions.xml',
+        'views/purchase_request_views.xml',
+        'actions/purchase_request_actions.xml',
         'views/purchase_order_menu.xml',
     ],
     # only loaded in demonstration mode

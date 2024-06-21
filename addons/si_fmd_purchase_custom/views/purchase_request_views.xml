@@ -1,16 +1,93 @@
 <odoo>
-    <record id="view_purchase_request_form" model="ir.ui.view">
-        <field name="name">view_purchase_request_form</field>
+
+        <!-- Inherit the existing tree view for purchase.order -->
+        <record id="view_purchase_request_tree" model="ir.ui.view">
+            <field name="name">purchase.order.inherit.purchase_order_kpis_tree.custom</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_kpis_tree"/> <!-- Correct module name -->
+            <field name="arch" type="xml">
+                <xpath expr="//tree/field[@name='name']" position="attributes">
+                    <attribute name="string">เลขที่ใบขอซื้อ</attribute>
+                </xpath>
+
+                <xpath expr="//tree/field[@name='name']" position="after">
+                    <field name="required_reason"/>
+                </xpath>
+                <xpath expr="//tree/field[@name='required_reason']" position="attributes">
+                    <attribute name="string">ผู้ขอซื้อ</attribute>
+                </xpath>
+
+                <xpath expr="//tree/field[@name='date_approve']" position="attributes">
+                     <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//tree/field[@name='partner_id']" position="attributes">
+                     <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//tree/field[@name='company_id']" position="attributes">
+                     <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//tree/field[@name='date_planned']" position="attributes">
+                    <attribute name="string">วันที่ต้องการสินค้า</attribute>
+                </xpath>
+
+                <xpath expr="//tree/field[@name='date_planned']" position="after">
+                    <field name="date_order"/>
+                </xpath>
+                <xpath expr="//tree/field[@name='date_order']" position="attributes">
+                    <attribute name="string">วันที่ขอซื้อ</attribute>
+                </xpath>
+                <xpath expr="//tree/field[@name='date_order']" position="attributes">
+                    <attribute name="string">วันที่ขอซื้อ</attribute>
+                </xpath>
+
+                <xpath expr="//tree/field[@name='date_order']" position="after">
+                     <field name="sum_product_qly"/>
+                </xpath>
+                <xpath expr="//tree/field[@name='activity_ids']" position="attributes">
+                     <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//tree/field[@name='user_id']" position="attributes">
+                     <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//tree/field[@name='origin']" position="attributes">
+                     <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//tree/field[@name='amount_total']" position="attributes">
+                     <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//tree/field[@name='state']" position="attributes">
+                     <attribute name="string">สถานะ</attribute>
+                </xpath>
+
+
+
+            </field>
+        </record>
+
+        <record id="view_purchase_request_form" model="ir.ui.view">
+        <field name="name">purchase.request.form.rm</field>
         <field name="model">purchase.order</field>
         <field name="inherit_id" ref="purchase.purchase_order_form"/>
         <field name="arch" type="xml">
-            <!-- <xpath expr="//span[contains(text(), 'Request for Quotation')]" position="replace">
-                <span class="o_form_label" modifiers="{&quot;invisible&quot;: [[&quot;state&quot;, &quot;not in&quot;, [&quot;draft&quot;, &quot;sent&quot;]]]}">ใบขอซื้อ</span>
-            </xpath>-->
-            <!-- Add new fields to the order line -->
             <xpath expr="//field[@name='order_line']/tree/field[@name='name']" position="after">
+                <field name="item_seq"/>
+                <field name="product_id"/>
                 <field name="item_description"/>
+                <field name="required_qly"/>
+                <field name="required_reason"/>
+                <field name="protein_pct" invisible="1"/>
+                <field name="product_qty" position="attributes">
+                <attribute name="invisible">1</attribute>
+
+            </field>
+                <!--
+    item_seq = fields.Integer(string='ลำดับ')
+    product_id = fields.Integer(string='สินค้า')
+    item_description = fields.Char(string='คำอธิบายรายการที่ต้องการ')
+    required_qly = fields.Integer(string='จำนวนที่ต้องการซื้อ')
+    required_reason = fields.Text(string='สาเหตุที่ต้องการขอซื้อ')-->
             </xpath>
         </field>
     </record>
+
 </odoo>
