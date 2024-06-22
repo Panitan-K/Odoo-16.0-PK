@@ -17,6 +17,12 @@ class BagType(models.Model):
     sag_type_id = fields.Many2one('si.sag.type', string='ประเภทกระสอบ')
     qty_weight_computed = fields.Float(string='จำนวน (QTY)', compute='_compute_weight_qty', store=True)
 
+    item_seq = fields.Integer(string='ลำดับ')
+    item_description = fields.Char(string='คำอธิบายรายการที่ต้องการ')
+    required_qly = fields.Integer(string='จำนวนที่ต้องการซื้อ')
+    required_reason = fields.Text(string='สาเหตุที่ต้องการขอซื้อ')
+
+    employee_id = fields.Many2one('hr.employee', string='ผู้ขอซื้อ')
 
     @api.depends('rm_weight_unit', 'number_of_sag', 'sag_type_id')
     def _compute_weight_qty(self):
