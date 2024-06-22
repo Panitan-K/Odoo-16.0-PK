@@ -22,6 +22,8 @@ class BagType(models.Model):
     required_qly = fields.Integer(string='จำนวนที่ต้องการซื้อ')
     required_reason = fields.Text(string='สาเหตุที่ต้องการขอซื้อ')
 
+    employee_id = fields.Many2one('hr.employee', string='ผู้ขอซื้อ')
+
     @api.depends('rm_weight_unit', 'number_of_sag', 'sag_type_id')
     def _compute_weight_qty(self):
         for line in self:

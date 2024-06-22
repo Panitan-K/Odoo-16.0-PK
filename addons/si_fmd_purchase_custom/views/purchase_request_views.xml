@@ -11,9 +11,9 @@
                 </xpath>
 
                 <xpath expr="//tree/field[@name='name']" position="after">
-                    <field name="required_reason"/>
+                    <field name="employee_id"/>
                 </xpath>
-                <xpath expr="//tree/field[@name='required_reason']" position="attributes">
+                <xpath expr="//tree/field[@name='employee_id']" position="attributes">
                     <attribute name="string">ผู้ขอซื้อ</attribute>
                 </xpath>
 
@@ -64,7 +64,7 @@
             </field>
         </record>
 
-        <record id="view_purchase_request_form" model="ir.ui.view">
+        <!--<record id="view_purchase_request_form" model="ir.ui.view">
         <field name="name">purchase.request.form.rm</field>
         <field name="model">purchase.order</field>
         <field name="inherit_id" ref="purchase.purchase_order_form"/>
@@ -80,14 +80,14 @@
                 <attribute name="invisible">1</attribute>
 
             </field>
-                <!--
+
     item_seq = fields.Integer(string='ลำดับ')
     product_id = fields.Integer(string='สินค้า')
     item_description = fields.Char(string='คำอธิบายรายการที่ต้องการ')
     required_qly = fields.Integer(string='จำนวนที่ต้องการซื้อ')
-    required_reason = fields.Text(string='สาเหตุที่ต้องการขอซื้อ')-->
+    required_reason = fields.Text(string='สาเหตุที่ต้องการขอซื้อ')
             </xpath>
         </field>
-    </record>
+    </record>-->
 
 </odoo>
