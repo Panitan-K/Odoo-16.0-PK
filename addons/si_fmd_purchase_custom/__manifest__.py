@@ -19,12 +19,14 @@
     'license': 'LGPL-3',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','purchase','stock'],
+    'depends': ['base','purchase','stock','hr'],
 
     # always loaded
     'data': [
         'views/purchase_order_rm_views.xml',
         'actions/purchase_order_rm_actions.xml',
+        'views/purchase_request_views.xml',
+        'actions/purchase_request_actions.xml',
         'views/purchase_order_menu.xml',
     ],
     # only loaded in demonstration mode
