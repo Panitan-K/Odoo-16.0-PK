@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="17064c9c-2026-4c49-8934-c62afe3064f6" name="Changes" comment="First Odoo 16 Push">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addons/si_fmd_inven_custom/__init__.py" beforeDir="false" />
@@ -24,6 +25,9 @@
       <change beforePath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/views/purchase_order_menu.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/views/purchase_order_rm_views.xml" beforeDir="false" />
     </list>
+=======
+    <list default="true" id="17064c9c-2026-4c49-8934-c62afe3064f6" name="Changes" comment="First Odoo 16 Push" />
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
