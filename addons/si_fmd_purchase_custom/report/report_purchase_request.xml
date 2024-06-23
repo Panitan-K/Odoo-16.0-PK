@@ -1,0 +1,10 @@
+<odoo>
+    <report
+        id="report_purchase_request_attributes"
+        model="purchase.order"
+        string="Request Purchase Order Attributes"
+        report_type="qweb-pdf"
+        name="si_fmd_purchase_custom.report_purchase_request_template"
+        file="si_fmd_purchase_custom.report_purchase_request_template"
+    />
+</odoo>

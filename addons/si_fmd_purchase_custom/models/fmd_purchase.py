@@ -19,11 +19,11 @@ class BagType(models.Model):
 
     item_seq = fields.Integer(string='ลำดับ')
     item_description = fields.Char(string='คำอธิบายรายการที่ต้องการ')
-    required_qly = fields.Integer(string='จำนวนที่ต้องการซื้อ')
+    required_qty = fields.Integer(string='จำนวนที่ต้องการซื้อ')
     required_reason = fields.Text(string='สาเหตุที่ต้องการขอซื้อ')
 
     employee_id = fields.Many2one('hr.employee', string='ผู้ขอซื้อ')
-
+    sum_product_qly = fields.Text(string='xxx')
     @api.depends('rm_weight_unit', 'number_of_sag', 'sag_type_id')
     def _compute_weight_qty(self):
         for line in self:
@@ -41,4 +41,5 @@ class BagType(models.Model):
                 line.product_qty = line.rm_weight_unit - (line.number_of_sag * line.sag_type_id.weight)
             else:
                 line.product_qty = line.rm_weight_unit
+
 

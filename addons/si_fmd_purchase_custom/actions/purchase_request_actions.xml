@@ -4,7 +4,7 @@
         <field name="name">ใบขอซื้อ</field>
         <field name="res_model">purchase.order</field>
         <field name="view_mode">tree,form</field>
-        <field name="view_id" ref="view_purchase_request_tree"/>
+        <field name="view_id" ref="view_fmd_purchase_request_tree"/>
         <field name="domain">[]</field>
         <field name="context">{}</field>
     </record>
