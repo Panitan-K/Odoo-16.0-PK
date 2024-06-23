@@ -1,31 +1,57 @@
 <odoo>
     <template id="report_purchase_request_template">
-        <t t-call="web.basic_layout">
-            <t t-set="doc" t-value="docs"/>
-            <div class="page">
-                <h2>Purchase Order Attributes</h2>
-                <t t-if="data['attributes']">
-                    <table class="table table-sm table-hover">
-                        <thead>
-                            <tr>
-                                <th>Attribute</th>
-                                <th>Value</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <t t-foreach="data['attributes'].items()" t-as="attr">
-                                <tr>
-                                    <td><t t-esc="attr[0]"/></td>
-                                    <td><t t-esc="attr[1]"/></td>
-                                </tr>
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Report title</h2>
+                        <p>หมายเลขใบสั่งซื้อ <span t-field="o.name"/></p>
+                        <table class="table table-sm mt-4">
+                <thead style="display: table-row-group">
+                    <tr>
+                        <th name="th_item_seq"><strong>ลำดับ</strong></th>
+                        <th name="th_product"><strong>สินค้า</strong></th>
+                        <th name="th_description"><strong>คำอธิบายรายการที่ต้องการ</strong></th>
+                        <th name="th_quantity" class="text-end"><strong>จำนวนที่ต้องการซื้อ</strong></th>
+                        <th name="th_required_reason" class="text-center"><strong>สาเหตุที่ต้องการขอซื้อ</strong></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="o.order_line" t-as="order_line">
+                        <tr t-att-class="'bg-200 fw-bold o_line_section' if order_line.display_type == 'line_section' else 'fst-italic o_line_note' if order_line.display_type == 'line_note' else ''">
+                            <t t-if="not order_line.display_type">
+                                <td id="item_seq">
+                                    <span t-field="order_line.item_seq"/>
+                                </td>
+                                <td id="product">
+                                    <span t-field="order_line.name"/>
+                                </td>
+                                <td id="item_description">
+                                    <span t-field="order_line.item_description"/>
+                                </td>
+
+                                <td class="text-center">
+                                    <span t-field="order_line.required_qty"/>
+                                    <span t-field="order_line.product_uom" groups="uom.group_uom"/>
+                                </td>
+                                <td class="text-center">
+                                    <span t-field="order_line.required_reason"/>
+                                </td>
                             </t>
-                        </tbody>
-                    </table>
+                            <t t-else="">
+                                <td colspan="99" id="section">
+                                    <span t-field="order_line.name"/>
+                                </td>
+                            </t>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+                    </div>
+
                 </t>
-                <t t-else="">
-                    <p>No attributes available.</p>
-                </t>
-            </div>
+            </t>
         </t>
     </template>
 </odoo>

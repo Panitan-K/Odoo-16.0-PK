@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-
+import logging
 from odoo import models, fields, api
+_logger = logging.getLogger(__name__)
 
 class PurchaseOrderLine(models.Model):
     _inherit = 'purchase.order'
@@ -21,42 +22,12 @@ class PurchaseOrderLine(models.Model):
             order.sum_product_qty = sum(line.product_qty for line in order.order_line)
 
     def action_si_request_purchase_rm(self):
-        # Collect attributes of the purchase order record
-        attributes = {}
-        for record in self:
-            for field in record._fields:
-                value = getattr(record, field)
-                if value is not None:  # Ensure value is not None before adding to attributes
-                    attributes[field] = value
-                    print(f"Field: {field}, Value: {attributes[field]}")  # Debug print statement
+        # Collect specific attributes of the purchase order record
+        attributes = {
+            'display_name': self.display_name,
+        }
 
         # Pass the attributes to the report context
-        print("Generating report with attributes:", attributes)  # Debug print statement
-
-        # Check if attributes is empty or None
-        if not attributes:
-            return {
-                'type': 'ir.actions.client',
-                'tag': 'display_notification',
-                'params': {
-                    'title': 'No Attributes Available',
-                    'sticky': False,
-                    'message': 'There are no attributes available to generate the report.',
-                }
-            }
-
-        # Call the report action with attributes data
-        try:
-            return self.env.ref('si_fmd_purchase_custom.report_purchase_request_attributes').report_action(self, data={
-                'attributes': attributes
-            })
-        except ValueError as ve:
-            return {
-                'type': 'ir.actions.client',
-                'tag': 'display_notification',
-                'params': {
-                    'title': 'Error Generating Report',
-                    'sticky': True,
-                    'message': str(ve),
-                }
-            }
+        return self.env.ref('si_fmd_purchase_custom.report_purchase_request_attributes').report_action(self, data={
+            'attributes': attributes
+        })
