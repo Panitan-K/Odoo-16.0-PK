@@ -2,48 +2,42 @@
     <template id="report_purchase_request_template">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
-                <t t-call="web.external_layout">
-
-                     <t t-set="o" t-value="o.with_context(lang=o.partner_id.lang)"/>
-                        <t t-set="forced_vat" t-value="o.fiscal_position_id.foreign_vat"/> <!-- So that it appears in the footer of the report instead of the company VAT if it's set -->
-                        <t t-set="address">
-                            <div t-field="o.partner_id"
-                                 t-options='{"widget": "contact", "fields": ["address", "name", "phone", "vat"], "no_marker": True, "phone_icons": True}'/>
-                     </t>
-
+                <t t-call="web.basic_layout">
                     <div class="page">
-                        <h2>Report title</h2>
-                        <p>หมายเลขใบสั่งซื้อ <span t-field="o.name"/></p>
+                        <h1>บริษัท พัฒนาการตลาดปลาป่น จำกัด</h1>
+                        <h2>ใบขอซื้อ (PURCHASE REQUISITION)</h2>
+                        <div>
+                            <span>กำหนดเวลาการสั่งซื้อ : </span>
+                            <span t-field="o.date_order" t-options="{'format': 'short'}"/>
+                        </div>
+                    </div>
+                    <div class="page">
+                        <p>เลขที่ <span t-field="o.name"/></p>
                          <table class="table table-sm mt-4">
                             <thead style="display: table-row-group">
                                 <tr>
                                     <th name="th_item_seq"><strong>ลำดับ</strong></th>
-                                    <th name="th_product"><strong>สินค้า</strong></th>
-                                    <th name="th_description"><strong>คำอธิบายรายการที่ต้องการ</strong></th>
-                                    <th name="th_quantity" class="text-end"><strong>จำนวนที่ต้องการซื้อ</strong></th>
-                                    <th name="th_required_reason" class="text-center"><strong>สาเหตุที่ต้องการขอซื้อ</strong></th>
-
+                                    <th name="th_product"><strong>รายการและ Spec สิ่งที่ต้องการขอซื้อ/จ้าง</strong></th>
+                                    <th name="th_quantity" ><strong>จำนวนที่ต้องการซื้อ</strong></th>
+                                    <th name="th_required_reason" ><strong>สาเหตุที่ต้องการขอซื้อ</strong></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <t t-foreach="o.order_line" t-as="order_line">
                                     <tr t-att-class="'bg-200 fw-bold o_line_section' if order_line.display_type == 'line_section' else 'fst-italic o_line_note' if order_line.display_type == 'line_note' else ''">
                                         <t t-if="not order_line.display_type">
-                                            <td id="item_seq">
+                                            <td id="item_seq" style="width: 160px;">
                                                 <span t-field="order_line.item_seq"/>
                                             </td>
-                                            <td id="product">
+                                            <td id="product" >
                                                 <span t-field="order_line.name"/>
-                                            </td>
-                                            <td id="item_description">
                                                 <span t-field="order_line.item_description"/>
                                             </td>
-
-                                            <td class="text-center">
+                                            <td class="text-center" >
                                                 <span t-field="order_line.required_qty"/>
                                                 <span t-field="order_line.product_uom" groups="uom.group_uom"/>
                                             </td>
-                                            <td class="text-center">
+                                            <td class="text-center" >
                                                 <span t-field="order_line.required_reason"/>
                                             </td>
                                         </t>
@@ -54,10 +48,50 @@
                                         </t>
                                     </tr>
                                 </t>
+                                 <tr>
+
+                                    <td colspan="2" style="text-align: center;">เฉพาะฝ่ายที่ขอซื้อ</td>
+
+                                    <td colspan="3" style="text-align: center;">เฉพาะฝ่ายจัดซื้อเท่านั้น</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        วันที่ต้องการสินค้า
+                                    </td>
+                                    <td>
+                                         <span t-field="o.date_planned" t-options="{'format': 'short'}"/>
+                                    </td>
+                                    <td>
+                                         วันที่รับใบขอซื้อ
+                                    </td>
+                                    <td colspan="2">
+                                         
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        ผู้ขอซื้อ/จัดจ้าง
+                                    </td>
+                                    <td>
+                                          
+                                    </td>
+                                    <td>
+                                         ผู้รับใบขอซื้อ/ผู้ตรวจสอบ
+                                    </td>
+                                    <td colspan="2">
+                                         
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="5" style="text-align: center;">
+                                        เฉพาะผู้มีอำนาจให้ซื้อพิจารณา
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
-
                 </t>
             </t>
         </t>

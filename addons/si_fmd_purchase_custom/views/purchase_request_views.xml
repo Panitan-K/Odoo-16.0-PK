@@ -70,10 +70,9 @@
         <field name="model">purchase.order</field>
         <field name="inherit_id" ref="purchase.purchase_order_form"/>
         <field name="arch" type="xml">
-            <header>
+          <!--  <header>
                 <button name="action_si_request_purchase_rm" type="object" string="ถ่ายสำเนา" class="oe_highlight"/>
-                <!-- Add other header buttons here if necessary -->
-            </header>
+            </header> -->
             <xpath expr="//div[@class='oe_title']" position="replace">
                         <!-- Static Title -->
                         <span class="o_form_label">จัดทำใบขอซื้อ</span>
