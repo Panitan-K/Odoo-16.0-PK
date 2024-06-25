@@ -8,7 +8,7 @@
                         <h2>ใบขอซื้อ (PURCHASE REQUISITION)</h2>
                         <div>
                             <span>กำหนดเวลาการสั่งซื้อ : </span>
-                            <span t-field="o.date_order" t-options="{'format': 'short'}"/>
+                            <span t-field="o.date_order" t-options="{'format': 'dd.MM.YYYY'}"/>
                         </div>
                     </div>
                     <div class="page">
@@ -59,7 +59,7 @@
                                         วันที่ต้องการสินค้า
                                     </td>
                                     <td>
-                                         <span t-field="o.date_planned" t-options="{'format': 'short'}"/>
+                                         <span t-field="o.date_planned" t-options="{'format': 'dd.MM.YYYY'}"/>
                                     </td>
                                     <td>
                                          วันที่รับใบขอซื้อ

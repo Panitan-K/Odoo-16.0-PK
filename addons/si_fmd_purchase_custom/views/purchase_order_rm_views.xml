@@ -1,26 +1,21 @@
 <!-- views/purchase_order_rm_views.xml -->
 <odoo>
-       <record id="view_is_purchase_order_rm_form" model="ir.ui.view">
-        <field name="name">purchase.order.form.rm</field>
-        <field name="model">purchase.order</field>
-        <field name="inherit_id" ref="purchase.purchase_order_form"/>
-        <field name="arch" type="xml">
-            <!-- Modify visibility for specific fields related to purchasing RM -->
-            <xpath expr="//field[@name='order_line']/tree/field[@name='name']" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </xpath>
-            <xpath expr="//field[@name='order_line']/tree/field[@name='product_qty']" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </xpath>
-            <!-- Add fields specific to RM purchase -->
-            <!--<xpath expr="//field[@name='order_line']/tree" position="inside">
-                <field name="protein_pct"/>
-                <field name="tvbn_unit"/>
-                <field name="rm_weight_unit"/>
-                <field name="number_of_sag"/>
-                <field name="sag_type_id"/>
-                <field name="qty_weight_computed"/>
-            </xpath> -->
-        </field>
+    <record id="view_is_purchase_order_rm_form" model="ir.ui.view">
+            <field name="name">purchase.order.line.rm</field>
+            <field name="model">purchase.order</field>
+            <field name="arch" type="xml">
+
+
+                    <field name="name"/>
+                    <field name="partner_id" string="Vendor" />
+                    <field name="product_id"/>
+                    <field name="price_unit"/>
+                    <field name="product_qty"/>
+                    <field name="product_uom" groups="uom.group_uom"/>
+                    <field name="price_subtotal" widget="monetary"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="date_planned"  widget="date"/>
+
+            </field>
     </record>
 </odoo>

@@ -2,8 +2,9 @@
 import logging
 from odoo import models, fields, api
 _logger = logging.getLogger(__name__)
-
-class PurchaseOrderLine(models.Model):
+from datetime import datetime
+import pytz
+class PurchaseOrder(models.Model):
     _inherit = 'purchase.order'
 
     sum_product_qty = fields.Float(string='จำนวนที่ต้องรวม', compute='_compute_sum_product_qty')
@@ -37,3 +38,15 @@ class PurchaseOrderLine(models.Model):
         return self.env.ref('si_fmd_purchase_custom.report_purchase_request_attributes').report_action(self, data={
             'attributes': attributes
         })
+
+    @api.model
+    def create(self, vals):
+        if vals.get('name', 'New') == 'New':
+            order_type = vals.get('z_po_type', 'PR')
+            #company_internal_code = self.env.user.company_id.x_company_internal_code
+            company_internal_code = "XXXX"
+            date = datetime.today()
+            prefix = f"{order_type}-{company_internal_code}{date.strftime('%y%m%d')}"
+            seq = self.env['ir.sequence'].next_by_code('purchase.order')
+            vals['name'] = f"{prefix}{seq}"
+        return super(PurchaseOrder, self).create(vals)

@@ -3,6 +3,8 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 import logging
+from datetime import datetime
+import pytz  # Ensure pytz is imported if using timezone-aware datetime
 
 _logger = logging.getLogger(__name__)
 
@@ -22,7 +24,7 @@ class BagType(models.Model):
     required_qty = fields.Integer(string='จำนวนที่ต้องการซื้อ')
     required_reason = fields.Text(string='สาเหตุที่ต้องการขอซื้อ')
 
-    sum_product_qly = fields.Text(string='xxx')
+
 
     @api.depends('rm_weight_unit', 'number_of_sag', 'sag_type_id')
     def _compute_weight_qty(self):
@@ -41,5 +43,7 @@ class BagType(models.Model):
                 line.product_qty = line.rm_weight_unit - (line.number_of_sag * line.sag_type_id.weight)
             else:
                 line.product_qty = line.rm_weight_unit
+
+
 
 
