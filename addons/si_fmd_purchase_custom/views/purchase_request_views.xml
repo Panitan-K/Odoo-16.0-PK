@@ -1,13 +1,27 @@
 <odoo>
-        <!-- Inherit the existing tree view for purchase.order -->
+        <!-- Request Tree -->
     <record id="view_fmd_purchase_request_tree" model="ir.ui.view">
             <field name="name">purchase.fmd_purchase_request_tree</field>
             <field name="model">purchase.order</field>
             <field name="inherit_id" ref="purchase.purchase_order_kpis_tree"/> <!-- Correct module name -->
             <field name="arch" type="xml">
-              <!--  <xpath expr="//tree" position="attributes">
-                     <attribute name="invisible">1</attribute>
-                </xpath> -->
+
+               <!-- <xpath expr="//tree" position="attributes">
+                    <attribute name="create">false</attribute>
+                </xpath>
+
+                <xpath expr="//tree/header" position="before">
+                    <button name="Create_Request_Order" type="object" string="New Button1" class="btn btn-primary o_list_button_add"/>
+                </xpath>
+                
+                <xpath expr="//header" position="before">
+                    <button name="Create_Request_Order" type="object" string="New Button1" class="btn btn-primary o_list_button_add"/>
+                </xpath>
+
+                <xpath expr="//tree" position="inside">
+                    <button name="Create_Request_Order" type="object" string="New Button2" class="btn btn-primary o_list_button_add"/>
+                </xpath>-->
+
                 <xpath expr="//tree/field[@name='name']" position="attributes">
                     <attribute name="string">เลขที่ใบขอซื้อ</attribute>
                 </xpath>
@@ -62,39 +76,42 @@
                 </xpath>
             </field>
     </record>
-
+<!--                       REQUEST FORM                             -->
     <record id="view_fmd_purchase_request_form" model="ir.ui.view">
         <field name="name">purchase.request.form</field>
         <field name="model">purchase.order</field>
         <field name="inherit_id" ref="purchase.purchase_order_form"/>
         <field name="arch" type="xml">
+
+            <xpath expr="//sheet" position="inside">
+                <group>
+                    <field name="show_custom_fields" invisible="1"/>
+                </group>
+             </xpath>
+
             <xpath expr="//div[@class='oe_title']" position="after">
-                <span class="o_form_label">จัดทำใบขอซื้อ</span>
+                <span class="o_form_label"> <!--attrs="{'invisible': [('show_custom_fields', '=', False)]}"-->
+                    จัดทำใบขอซื้อ
+                </span>
             </xpath>
             <xpath expr="//group/field[@name='partner_id']" position="before">
-                <field name="employee_id" required="1"/>
+                <field name="employee_id" required="1" />
             </xpath>
             <xpath expr="//group/field[@name='partner_id']" position="attributes">
-                    <!-- Make partner_id invisible and not required -->
-                    <attribute name="invisible">1</attribute>
-                    <attribute name="required">0</attribute>
+                <attribute name="invisible">1</attribute>
+                <attribute name="required">0</attribute>
             </xpath>
-
             <xpath expr="//group/field[@name='partner_ref']" position="attributes">
-                    <!-- Make partner_id invisible and not required -->
-                    <attribute name="invisible">1</attribute>
+                <attribute name="invisible">1</attribute>
             </xpath>
-
-
             <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="before">
                 <field name="item_seq"/>
             </xpath>
             <xpath expr="//tree/field[@name='product_id']" position="attributes">
-                <attribute name="string">ลำดับ </attribute>
-
+                <attribute name="string">ลำดับ</attribute>
             </xpath>
             <xpath expr="//tree/field[@name='product_id']" position="attributes">
-                <attribute name="string">สินค้า </attribute>
+                <attribute name="string">สินค้า</attribute>
                 <attribute name="style">width: 100px; min-width: 100px;</attribute>
             </xpath>
             <xpath expr="//field[@name='order_line']/tree/field[@name='name']" position="attributes">
@@ -105,7 +122,6 @@
                 <field name="required_qty" width="50"/>
                 <field name="required_reason"/>
             </xpath>
-
             <xpath expr="//field[@name='order_line']/tree/field[@name='product_qty']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
@@ -120,4 +136,5 @@
             </xpath>
         </field>
     </record>
+
 </odoo>

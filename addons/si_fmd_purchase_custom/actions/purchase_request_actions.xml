@@ -6,6 +6,6 @@
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="view_fmd_purchase_request_tree"/>
         <field name="domain">[]</field>
-        <field name="context">{}</field>
+        <field name="context">{'from_request_tree': True}</field>
     </record>
 </odoo>
