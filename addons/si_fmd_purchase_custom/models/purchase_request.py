@@ -7,7 +7,8 @@ import pytz
 class PurchaseOrder(models.Model):
     _inherit = 'purchase.order'
 
-
+    date_order = fields.Datetime(string='วันที่ขอซื้อ/จัดจ้าง')
+    date_planned = fields.Datetime(string='วันที่ต้องการสินค้า')
     show_custom_fields = fields.Boolean(
         string="Show Custom Fields",
         compute='_compute_show_custom_fields'
@@ -46,10 +47,10 @@ class PurchaseOrder(models.Model):
     def _compute_show_custom_fields(self):
         for record in self:
             record.show_custom_fields = self.env.context.get('from_request_tree', False)
-    @api.depends('order_line.required_qty')
+    @api.depends('order_line.product_qty')
     def _compute_sum_product_qty(self):
         for order in self:
-            order.sum_product_qty = sum(line.required_qty for line in order.order_line)
+            order.sum_product_qty = sum(line.product_qty for line in order.order_line)
 
     def action_si_request_purchase_rm(self):
         # Collect specific attributes of the purchase order record

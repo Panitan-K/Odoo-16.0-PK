@@ -104,27 +104,39 @@
             <xpath expr="//group/field[@name='partner_ref']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
+
+            <xpath expr="//group/field[@name='date_order']" position="attributes">
+                <attribute name="string">วันที่ขอซื้อ/จัดจ้าง</attribute>
+            </xpath>
+
+            <xpath expr="//group/field[@name='date_planned']" position="attributes">
+                <attribute name="string">วันที่ต้องการสินค้า</attribute>
+            </xpath>
+
             <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="before">
-                <field name="item_seq"/>
+                <field name="item_seq" string="ลำดับ" readonly="1"/>
             </xpath>
-            <xpath expr="//tree/field[@name='product_id']" position="attributes">
-                <attribute name="string">ลำดับ</attribute>
-            </xpath>
+
             <xpath expr="//tree/field[@name='product_id']" position="attributes">
                 <attribute name="string">สินค้า</attribute>
-                <attribute name="style">width: 100px; min-width: 100px;</attribute>
             </xpath>
+
             <xpath expr="//field[@name='order_line']/tree/field[@name='name']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
             <xpath expr="//field[@name='order_line']/tree/field[@name='name']" position="after">
                 <field name="item_description"/>
-                <field name="required_qty" width="50"/>
+            </xpath>
+            <xpath expr="//tree/field[@name='product_qty']" position="attributes">
+                <field string="จำนวนที่ต้องการซื้อ"/>
+            </xpath>
+
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_qty']" position="after">
                 <field name="required_reason"/>
             </xpath>
-            <xpath expr="//field[@name='order_line']/tree/field[@name='product_qty']" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </xpath>
+
+
+
             <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>

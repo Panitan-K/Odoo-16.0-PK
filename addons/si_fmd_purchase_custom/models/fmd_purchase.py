@@ -12,6 +12,8 @@ _logger = logging.getLogger(__name__)
 class BagType(models.Model):
     _inherit = 'purchase.order.line'
 
+    date_order = fields.Datetime(related='order_id.date_order', string='วันที่ขอซื้อ/จัดจ้าง',store=True)  # Update related field
+
     protein_pct = fields.Float(string='โปรตีน (%)')
     tvbn_unit = fields.Float(string='TVBN')
     rm_weight_unit = fields.Float(string='นน. RM ที่ชั่งได้ (กก.)')
@@ -20,7 +22,7 @@ class BagType(models.Model):
     qty_weight_computed = fields.Float(string='จำนวน (QTY)', compute='_compute_weight_qty', store=True)
     price_subtotal = fields.Float(string='มูลค่าสุทธิ', compute='_compute_price_subtotal', store=True)
 
-    item_seq = fields.Integer(string='ลำดับ')
+    item_seq = fields.Integer(string='ลำดับ', compute='_compute_item_seq', store=True)
     item_description = fields.Char(string='คำอธิบายรายการที่ต้องการ')
     required_qty = fields.Integer(string='จำนวนที่ต้องการซื้อ')
     required_reason = fields.Text(string='สาเหตุที่ต้องการขอซื้อ')
@@ -54,7 +56,13 @@ class BagType(models.Model):
             else:
                 line.price_subtotal = 0.0  # Set to 0.0 if any value is missing
 
-
+    @api.depends('order_id.order_line')
+    def _compute_item_seq(self):
+        for order in self.mapped('order_id'):
+            # Sort by sequence if available
+            sorted_lines = order.order_line.sorted(lambda l: l.sequence or 0)
+            for index, line in enumerate(sorted_lines, start=1):
+                line.item_seq = index
 
 
 
