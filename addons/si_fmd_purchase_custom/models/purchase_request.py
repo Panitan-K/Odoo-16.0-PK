@@ -7,23 +7,22 @@ import pytz
 class PurchaseOrder(models.Model):
     _inherit = 'purchase.order'
 
+    #order_id = fields.Many2one('purchase.order', string='Order Reference')
+    #price_unit = fields.Many2one('purchase.price_unit', string='Order Reference')
+    #product_qty = fields.Many2one('purchase.product_qty', string='Order Reference')
+    #product_uom = fields.Many2one('purchase.product_uom', string='Order Reference')
+    #price_subtotal = fields.Many2one('purchase.product_uom', string='Order Reference')
+    order_id = fields.Many2one('purchase.order', string='Order Reference')
+    product_qty = fields.Many2one('purchase.order', string="ProductQTY")
+    price_unit = fields.Many2one('purchase.order', string='Price Unit')
+    taxes_id = fields.Many2one('purchase.order', string='Taxes')
+    invoice_lines = fields.One2many('account.move.line', 'purchase_line_id', string="Bill Lines", readonly=True,
+                                    copy=False)
+
+
     date_order = fields.Datetime(string='วันที่ขอซื้อ/จัดจ้าง')
     date_planned = fields.Datetime(string='วันที่ต้องการสินค้า')
-    show_custom_fields = fields.Boolean(
-        string="Show Custom Fields",
-        compute='_compute_show_custom_fields'
-    )
-
-
     sum_product_qty = fields.Float(string='จำนวนที่ต้องรวม', compute='_compute_sum_product_qty')
-    partner_id = fields.Many2one(
-        'res.partner',
-        string='Vendor',
-        required=False,  # Ensure this is not required at the model level
-        index=True,
-        tracking=True
-    )
-
     employee_id = fields.Many2one(
         'hr.employee',
         string='ผู้ขอซื้อ',

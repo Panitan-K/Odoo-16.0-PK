@@ -4,7 +4,9 @@
         <field name="name">ใบขอซื้อ</field>
         <field name="res_model">purchase.order</field>
         <field name="view_mode">tree,form</field>
-        <field name="view_id" ref="view_fmd_purchase_request_tree"/>
+       <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('view_fmd_purchase_request_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('view_fmd_purchase_request_form')})]"/>
         <field name="domain">[]</field>
         <field name="context">{'from_request_tree': True}</field>
     </record>

@@ -6,22 +6,6 @@
             <field name="inherit_id" ref="purchase.purchase_order_kpis_tree"/> <!-- Correct module name -->
             <field name="arch" type="xml">
 
-               <!-- <xpath expr="//tree" position="attributes">
-                    <attribute name="create">false</attribute>
-                </xpath>
-
-                <xpath expr="//tree/header" position="before">
-                    <button name="Create_Request_Order" type="object" string="New Button1" class="btn btn-primary o_list_button_add"/>
-                </xpath>
-                
-                <xpath expr="//header" position="before">
-                    <button name="Create_Request_Order" type="object" string="New Button1" class="btn btn-primary o_list_button_add"/>
-                </xpath>
-
-                <xpath expr="//tree" position="inside">
-                    <button name="Create_Request_Order" type="object" string="New Button2" class="btn btn-primary o_list_button_add"/>
-                </xpath>-->
-
                 <xpath expr="//tree/field[@name='name']" position="attributes">
                     <attribute name="string">เลขที่ใบขอซื้อ</attribute>
                 </xpath>
@@ -82,12 +66,11 @@
         <field name="model">purchase.order</field>
         <field name="inherit_id" ref="purchase.purchase_order_form"/>
         <field name="arch" type="xml">
-
-            <xpath expr="//sheet" position="inside">
+            <!--<xpath expr="//sheet" position="inside">
                 <group>
                     <field name="show_custom_fields" invisible="1"/>
                 </group>
-             </xpath>
+             </xpath> -->
 
             <xpath expr="//div[@class='oe_title']" position="after">
                 <span class="o_form_label"> <!--attrs="{'invisible': [('show_custom_fields', '=', False)]}"-->

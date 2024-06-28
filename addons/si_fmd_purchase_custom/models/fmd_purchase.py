@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api
-from odoo.exceptions import ValidationError
 import logging
-from datetime import datetime
-import pytz  # Ensure pytz is imported if using timezone-aware datetime
+
+from odoo import models, fields, api
 
 _logger = logging.getLogger(__name__)
 
@@ -12,7 +10,7 @@ _logger = logging.getLogger(__name__)
 class BagType(models.Model):
     _inherit = 'purchase.order.line'
 
-    date_order = fields.Datetime(related='order_id.date_order', string='วันที่ขอซื้อ/จัดจ้าง',store=True)  # Update related field
+    date_order = fields.Datetime(related='order_id.date_order', string='วันที่ขอซื้อ/จัดจ้าง', store=True)  # Update related field
 
     protein_pct = fields.Float(string='โปรตีน (%)')
     tvbn_unit = fields.Float(string='TVBN')
@@ -63,6 +61,3 @@ class BagType(models.Model):
             sorted_lines = order.order_line.sorted(lambda l: l.sequence or 0)
             for index, line in enumerate(sorted_lines, start=1):
                 line.item_seq = index
-
-
-
