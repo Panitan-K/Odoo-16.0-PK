@@ -14,8 +14,8 @@ class PurchaseOrder(models.Model):
     #product_qty = fields.Many2one('purchase.product_qty', string='Order Reference')
     #product_uom = fields.Many2one('purchase.product_uom', string='Order Reference')
     #price_subtotal = fields.Many2one('purchase.product_uom', string='Order Reference')
-    order_id = fields.Many2one('purchase.order', string='Order Reference')
-    product_qty = fields.Many2one('purchase.order', string="ProductQTY")
+    order_id = fields.Many2one('purchase.order')
+    product_qty = fields.Many2one('purchase.order', string="จำนวนที่ต้องซื้อ")
     price_unit = fields.Many2one('purchase.order', string='Price Unit')
     taxes_id = fields.Many2one('purchase.order', string='Taxes')
     invoice_lines = fields.One2many('account.move.line', 'purchase_line_id', string="Bill Lines", readonly=True,

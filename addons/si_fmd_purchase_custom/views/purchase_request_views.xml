@@ -72,7 +72,7 @@
                 </group>
              </xpath> -->
 
-            <xpath expr="//div[@class='oe_title']" position="after">
+            <xpath expr="//div/span[@class='o_form_label']" position="replace">
                 <span class="o_form_label"> <!--attrs="{'invisible': [('show_custom_fields', '=', False)]}"-->
                     จัดทำใบขอซื้อ
                 </span>
@@ -110,7 +110,7 @@
             <xpath expr="//field[@name='order_line']/tree/field[@name='name']" position="after">
                 <field name="item_description"/>
             </xpath>
-            <xpath expr="//tree/field[@name='product_qty']" position="attributes">
+            <xpath expr="//field[@name='product_qty']" position="attributes">
                 <field string="จำนวนที่ต้องการซื้อ"/>
             </xpath>
 
