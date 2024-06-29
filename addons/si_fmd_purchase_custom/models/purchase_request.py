@@ -7,6 +7,8 @@ import pytz
 class PurchaseOrder(models.Model):
     _inherit = 'purchase.order'
 
+    partner_id = fields.Many2one('res.partner', string='Vendor', required=False)
+
     #order_id = fields.Many2one('purchase.order', string='Order Reference')
     #price_unit = fields.Many2one('purchase.price_unit', string='Order Reference')
     #product_qty = fields.Many2one('purchase.product_qty', string='Order Reference')
