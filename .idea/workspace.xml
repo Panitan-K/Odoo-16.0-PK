@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="17064c9c-2026-4c49-8934-c62afe3064f6" name="Changes" comment="First Odoo 16 Push">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/models/purchase_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/models/purchase_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/__manifest__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/models/purchase_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/models/fmd_purchase_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/views/purchase_order_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/views/purchase_order_menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/views/purchase_order_rm_views.xml" beforeDir="false" afterPath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/views/purchase_order_rm_views.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/views/purchase_request_views.xml" beforeDir="false" afterPath="$PROJECT_DIR$/addons/si_fmd_purchase_custom/views/purchase_request_views.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
