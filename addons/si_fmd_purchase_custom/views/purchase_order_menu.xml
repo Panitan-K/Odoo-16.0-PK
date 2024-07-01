@@ -10,15 +10,12 @@
 
         <menuitem id="menu_si_request_purchase_rm" name="ใบขอซื้อ"
                   parent="menu_si_fmd_purchase_root"
-                  action="action_si_request_purchase_rm" sequence="10" />
+                  action="action_si_request_purchase" sequence="10" />
 
         <menuitem id="menu_si_purchase_rm" name="คำสั่งซื้อ RM"
                   parent="menu_si_fmd_purchase_root"
                   action="action_si_purchase_rm" sequence="17" />
 
-        <menuitem id="menu_si_purchase_rm2" name="คำสั่งซื้อ RM2"
-                  parent="menu_si_fmd_purchase_root"
-                  action="test_action_si_request_purchase_rm" sequence="18" />
 
 
         <!-- Hide existing menu items -->

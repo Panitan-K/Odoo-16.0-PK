@@ -65,12 +65,61 @@
         <field name="priority" eval="10"/>
         <field name="inherit_id" ref="purchase.purchase_order_form"/>
         <field name="arch" type="xml">
+
+             <xpath expr="//div/span[@class='o_form_label']" position="replace">
+                <span class="o_form_label"> <!--attrs="{'invisible': [('show_custom_fields', '=', False)]}"-->
+                    ใบสั่งซื้อ RM
+                </span>
+            </xpath>
+
+            <xpath expr="//group/field[@name='partner_id']" position="before">
+                <field name="employee_id" required="1" />
+            </xpath>
+            <xpath expr="//group/field[@name='partner_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+                <attribute name="required">0</attribute>
+            </xpath>
+            <xpath expr="//group/field[@name='partner_ref']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="before">
+                <field name="item_seq" string="ลำดับ" readonly="1"/>
+            </xpath>
+
+            <xpath expr="//group/field[@name='date_order']" position="attributes">
+                <attribute name="string">วันที่ขอซื้อ/จัดจ้าง</attribute>
+            </xpath>
+
+            <xpath expr="//group/field[@name='date_planned']" position="attributes">
+                <attribute name="string">วันที่ต้องการสินค้า</attribute>
+            </xpath>
+
             <xpath expr="//field[@name='order_line']/tree/field[@name='name']" position="after">
                 <field name="protein_pct"/>
                 <field name="tvbn_unit"/>
                 <field name="rm_weight_unit"/>
                 <field name="number_of_sag"/>
                 <field name="sag_type_id"/>
+                <field name="qty_weight_computed"/>
+                <field name="bag_weight_unit"/>
+                <field name="key_in_product_price"/>
+
+            </xpath>
+
+             <xpath expr="//field[@name='order_line']/tree/field[@name='product_qty']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='order_line']/tree/field[@name='taxes_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='price_subtotal']" position="attributes">
+                <attribute name="invisible">1</attribute>
             </xpath>
         </field>
     </record>
@@ -81,6 +130,7 @@
         <field name="model">purchase.order</field>
         <field name="inherit_id" ref="purchase.purchase_order_view_tree"/>
         <field name="arch" type="xml">
+
             <xpath expr="//field[@name='date_order']" position="after">
                 <field name="product_id" string="Custom Field" optional="show"/>
             </xpath>

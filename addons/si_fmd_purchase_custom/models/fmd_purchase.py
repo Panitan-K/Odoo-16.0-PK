@@ -17,8 +17,13 @@ class BagType(models.Model):
     rm_weight_unit = fields.Float(string='นน. RM ที่ชั่งได้ (กก.)')
     number_of_sag = fields.Integer(string='จำนวนกระสอบ')
     sag_type_id = fields.Many2one('si.sag.type', string='ประเภทกระสอบ')
+    sag_type_unit = fields.Many2one('si.sag.unit', string='ประเภทกระสอบ')
     qty_weight_computed = fields.Float(string='จำนวน (QTY)', compute='_compute_weight_qty', store=True)
     price_subtotal = fields.Float(string='มูลค่าสุทธิ', compute='_compute_price_subtotal', store=True)
+    bag_weight_unit = fields.Selection([
+        ('kg', 'กก.'),
+    ], string='หน่วย', default='kg')
+    key_in_product_price = fields.Float(string='ราคา (price)')
 
     item_seq = fields.Integer(string='ลำดับ', compute='_compute_item_seq', store=True)
     item_description = fields.Char(string='คำอธิบายรายการที่ต้องการ')

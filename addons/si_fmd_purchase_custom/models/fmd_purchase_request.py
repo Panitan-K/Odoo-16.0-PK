@@ -26,6 +26,8 @@ class PurchaseOrder(models.Model):
     rm_weight_unit = fields.Many2one('purchase.order.line', string='นน. RM ที่ชั่งได้ (กก.)')
     number_of_sag = fields.Many2one('purchase.order.line',string='จำนวนกระสอบ')
     sag_type_id = fields.Many2one('si.sag.type', string='ประเภทกระสอบ')
+    bag_weight_unit = fields.Many2one('purchase.order.line')
+    key_in_product_price = fields.Many2one('purchase.order.line')
 
     date_order = fields.Datetime(string='วันที่ขอซื้อ/จัดจ้าง')
     date_planned = fields.Datetime(string='วันที่ต้องการสินค้า')

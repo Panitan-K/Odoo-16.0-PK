@@ -1,6 +1,6 @@
 <!-- actions/purchase_request_actions.xml -->
 <odoo>
-    <record id="action_si_request_purchase_rm" model="ir.actions.act_window">
+    <record id="action_si_request_purchase" model="ir.actions.act_window">
         <field name="name">ใบขอซื้อ</field>
         <field name="res_model">purchase.order</field>
         <field name="view_mode">tree,form</field>
